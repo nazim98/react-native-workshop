@@ -2,17 +2,22 @@ import { useEffect, useState } from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import Post from './components/Post';
 import { StatusBar } from 'expo-status-bar';
-import { createdStackNavigator } from "@react-navigation/stack";
+import { createStackNavigator } from "@react-navigation/stack";
+import HomeScreen from './pages/homescreen';
+import Contentscreen from './pages/contentscreen';
+import { NavigationContainer } from '@react-navigation/native';
 
-const Stack = createdStackNavigator
+const Stack = createStackNavigator()
 
 
 export default function App() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Home" component={Homescreen} />
+    <NavigationContainer>
+      <Stack.Navigator>
+      <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Content" component={Contentscreen} />
     </Stack.Navigator>
+    </NavigationContainer>
   );
 
   const [ posts, setPosts] = useState([])
@@ -58,12 +63,4 @@ useEffect(() => {
 //   );
 // }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingTop: 40
-  },
-});
+

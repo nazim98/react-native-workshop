@@ -9,6 +9,6 @@ const Contentscreen = () => {
   )
 }
 
-export default C
+export default Contentscreen
 
 const styles = StyleSheet.create({})
